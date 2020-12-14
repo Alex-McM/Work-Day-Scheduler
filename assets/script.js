@@ -10,3 +10,17 @@ var dayPlanner5 = $("#17");
 var dayPlanner6 = $("#18")
 var time = moment();
 
+function setPlanner() {
+
+    $("#currentDay").text(moment().format("dddd, MMMM Do YYYY"));
+
+    $(".time-block").each(function () {
+        var id = $(this).attr("id");
+        var schedule = localStorage.getItem(id);
+
+        if (schedule !== null) {
+            $(this).children(".schedule").val(schedule);
+        }
+    });
+}
+
