@@ -10,7 +10,7 @@ var dayPlanner5 = $("#17");
 var dayPlanner6 = $("#18")
 var time = moment();
 
-function setPlanner() {
+function statedPlanner() {
 
     $("#currentDay").text(moment().format("dddd, MMMM Do YYYY"));
 
@@ -24,3 +24,12 @@ function setPlanner() {
     });
 }
 
+statedPlanner();
+var saveBtn = $(".saveBtn");
+
+saveBtn.on("click", function () {
+    var time = $(this).parent().attr("id");
+    var schedule = $(this).siblings(".schedule").val();
+
+    localStorage.setItem(time, schedule);
+});
